@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=2.0">
+  <title>Customer Response Prediction</title>
+  
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+  
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arimo', sans-serif;
+      background-color:#FF8C00; /* Dark orange background */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .container {
+      width: 350px;
+      max-height: 100vh;
+      overflow-y: auto;
+      background-color: #fff;
+      padding: 20px;
+      box-sizing: border-box;
+      border-radius: 10px;
+    }
+    .prediction-text {
+      font-size: 18px;
+      color: white;
+      background-color: #333;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    h1 {
+      #white-space: nowrap;
+      color: darkblue;
+      font-family: 'Pacifico', cursive;
+      font-size: 24px;
+      margin: 0 0 20px 0;
+      padding: 10px 0;
+      text-align: center;
+      #overflow: hidden;
+      #text-overflow: ellipsis;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Customer Response Prediction</h1>
+    
+    <!-- Prediction Output -->
+    <div class="prediction-text">
+      <h2>{{ prediction_text }}</h2>
+    </div>
+    
+    <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}" method="post">           
+     
+      <input type="text" name="Marital_Status" placeholder="Marital Status" required="required" />
+      <input type="text" name="Income" placeholder="Income" required="required" />
+      <input type="text" name="AcceptedCmp1" placeholder="Campaign1 Response " required="required" />
+      <input type="text" name="AcceptedCmp2" placeholder="Campaign2 Response" required="required" />
+      <input type="text" name="AcceptedCmp3" placeholder="Campaign3 Response" required="required" />
+      <input type="text" name="AcceptedCmp4" placeholder="Campaign4 Response" required="required" />
+      <input type="text" name="AcceptedCmp5" placeholder="Campaign5 Response" required="required" />      
+      <input type="text" name="NumDealsPurchases" placeholder="Number of Deals Purchases" required="required" />
+      <input type="text" name="NumCatalogPurchases" placeholder="Number of Catalog Purchases" required="required" />
+      <input type="text" name="NumWebPurchases" placeholder="Number of Web Purchases" required="required" />
+      <input type="text" name="NumStorePurchases" placeholder="Number of Store Purchases" required="required" />
+      <input type="text" name="NumWebVisitsMonth" placeholder="Number of Web Visits per Month" required="required" />
+      <input type="text" name="Total_Children" placeholder="Total Children" required="required" />
+      <input type="text" name="Age" placeholder="Age" required="required" />
+       <input type="text" name="Tenure" placeholder="Tenure" required="required" />
+      <input type="text" name="Total_Spent" placeholder="Total Amount Spent" required="required" />
+           
+      <button type="submit">Predict</button>
+    </form>
+  </div>
+</body>
+</html>
